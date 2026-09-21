@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c3cfe2"/>
+      <stop offset="100%" stop-color="#f5f7fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1672" height="941" fill="url(#bg)"/>
+  <g opacity="0.25" stroke="#2c3e50" stroke-width="3" fill="none">
+    <circle cx="220" cy="180" r="90"/><circle cx="1480" cy="760" r="130"/>
+    <circle cx="1380" cy="150" r="60"/><circle cx="160" cy="800" r="70"/>
+  </g>
+  <g opacity="0.35" font-family="SFMono-Regular, Consolas, monospace" font-size="30" fill="#2c3e50">
+    <text x="120" y="770">&#123;&#125;</text>
+    <text x="1500" y="240">&lt;/&gt;</text>
+  </g>
+  <rect x="776" y="426" width="120" height="120" rx="14" fill="none" stroke="#2c3e50" stroke-width="13"/><rect x="811" y="461" width="50" height="50" rx="8" fill="#2c3e50"/><g stroke="#2c3e50" stroke-width="9" stroke-linecap="round"><path d="M 800 426 v-22 M 836 426 v-22 M 872 426 v-22 M 800 546 v22 M 836 546 v22 M 872 546 v22 M 776 446 h-22 M 776 486 h-22 M 896 446 h22 M 896 486 h22"/></g>
+  <text x="836" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="76" font-weight="800" fill="#2c3e50" text-anchor="middle">ModbusLite</text>
+  <text x="836" y="710" font-family="'Segoe UI', Arial, sans-serif" font-size="36" fill="#2c3e50" opacity="0.85" text-anchor="middle">Modbus TCP for .NET 8</text>
+  <text x="836" y="880" font-family="'Segoe UI', Arial, sans-serif" font-size="26" letter-spacing="8" fill="#2c3e50" opacity="0.6" text-anchor="middle">GODDE3S · USF</text>
+</svg>
