@@ -10,10 +10,8 @@ A single-page portfolio built with plain HTML, CSS and vanilla JavaScript — no
 
 ## Sections
 
-- Hero with an interactive notebook mockup (press **Run all**) — output includes a live bar chart
-- MacBook slider (**ported from the Usf repo**) — autoplaying project stories with dots, arrows, swipe and keyboard navigation
+- Hero with an interactive notebook mockup (press **Run all**)
 - Selected projects — every card links to a working public repository
-- "More builds" drag-and-swipe rail with project artwork
 - Skills toolbox
 - Agentic coding stack (OpenCode, Codex, Claude Code, Hermes)
 - About + stats
@@ -21,9 +19,8 @@ A single-page portfolio built with plain HTML, CSS and vanilla JavaScript — no
 
 ## Stack
 
-- HTML5 + CSS3 (custom properties, grid, scroll-snap, responsive)
-- Vanilla JS (theme toggle, laptop slider, menu, scroll reveal, notebook interaction)
-- Light & **dark theme** — follows the OS preference, manual toggle persisted in localStorage
+- HTML5 + CSS3 (custom properties, grid, responsive)
+- Vanilla JS (menu, scroll reveal, notebook interaction)
 - GitHub Pages
 
 Previous portfolio: [godde3s.github.io/Usf](https://godde3s.github.io/Usf/)
