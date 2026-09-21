@@ -2,46 +2,11 @@
 (function () {
   'use strict';
 
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- Theme toggle ---------- */
-  var root = document.documentElement;
-  var toggle = document.getElementById('themeToggle');
-  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-  function syncToggle() {
-    var dark = root.getAttribute('data-theme') === 'dark';
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', String(dark));
-      toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-    }
-  }
-  syncToggle();
-  // Follow OS changes only when the user has not chosen explicitly
-  try {
-    if (!localStorage.getItem('or-theme')) {
-      prefersDark.addEventListener && prefersDark.addEventListener('change', function (e) {
-        root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-        syncToggle();
-      });
-    }
-  } catch (e) {}
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.classList.add('theme-anim');
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('or-theme', next); } catch (e) {}
-      syncToggle();
-      window.setTimeout(function () { root.classList.remove('theme-anim'); }, 350);
-    });
-  }
-
-  /* ---------- Footer year ---------- */
+  // Current year in footer
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
-  /* ---------- Sticky nav shadow ---------- */
+  // Sticky nav shadow on scroll
   var nav = document.getElementById('nav');
   var onScroll = function () {
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
@@ -49,7 +14,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- Mobile menu ---------- */
+  // Mobile menu
   var burger = document.getElementById('burger');
   var links = document.getElementById('navLinks');
   if (burger && links) {
@@ -67,7 +32,7 @@
     });
   }
 
-  /* ---------- Reveal on scroll ---------- */
+  // Reveal on scroll
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -83,7 +48,7 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- Notebook "Run all" ---------- */
+  // Notebook "Run all" — the Deepnote touch
   var notebook = document.getElementById('notebook');
   var runBtn = document.getElementById('runBtn');
   if (notebook && runBtn) {
@@ -103,6 +68,7 @@
       }, 700);
     };
     runBtn.addEventListener('click', run);
+    // Auto-run once when the notebook first scrolls into view
     if ('IntersectionObserver' in window) {
       var nbIo = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -117,168 +83,218 @@
       notebook.classList.add('ran');
     }
   }
+})();
 
-  /* ---------- Laptop slider (ported from Usf, vanilla) ---------- */
+/* ---- Project stories laptop — faithful vanilla port of Usf VibeStories.vue ---- */
+(function () {
+  'use strict';
+
+  var container = document.getElementById('vibeStories');
+  if (!container) return;
+
+  // Same data (EN defaults) as `tStories` in VibeStories.vue
   var STORIES = [
     {
+      id: 1,
       title: 'One binary that answers every network question',
-      author: 'Built with: netpilot · Go',
-      href: 'https://github.com/Godde3s/netpilot',
-      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>'
+      author: 'netpilot · Go',
+      avatar: 'activity',
+      image: 'assets/stories/story-1.webp',
+      srcset: 'assets/stories/story-1-640.webp 640w, assets/stories/story-1.webp 1280w',
+      imageHeight: 959,
+      objectPosition: 'center center',
+      link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-1/'
     },
     {
+      id: 2,
       title: 'One router in front of every AI model',
-      author: 'Built with: omnirouter · Go',
-      href: 'https://github.com/Godde3s/omnirouter',
-      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2h6M9 22h6M2 9v6m20-6v6M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>'
+      author: 'omnirouter · Go',
+      avatar: 'network',
+      image: 'assets/stories/story-2.webp',
+      srcset: 'assets/stories/story-2-640.webp 640w, assets/stories/story-2.webp 1280w',
+      imageHeight: 700,
+      objectPosition: 'center center',
+      link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-2/'
     },
     {
+      id: 3,
       title: 'A VLESS panel that survives real censorship',
-      author: 'Built with: Usf Panel · Python',
-      href: 'https://github.com/Godde3s/Usf-panel',
-      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>'
+      author: 'Usf Panel · Python',
+      avatar: 'shield',
+      image: 'assets/stories/story-3.webp',
+      srcset: 'assets/stories/story-3-640.webp 640w, assets/stories/story-3.webp 1280w',
+      imageHeight: 768,
+      objectPosition: '34% center',
+      link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-3/'
     },
     {
-      title: 'This portfolio — designed, built, shipped',
-      author: 'Built with: OR · HTML/CSS/JS',
-      href: 'https://godde3s.github.io/Usf/',
-      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>'
+      id: 4,
+      title: 'This portfolio — four languages, one VitePress',
+      author: 'Usf · Vue',
+      avatar: 'layout',
+      image: 'assets/stories/story-4.webp',
+      srcset: 'assets/stories/story-4-640.webp 640w, assets/stories/story-4.webp 1280w',
+      imageHeight: 992,
+      objectPosition: 'center center',
+      link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-4/'
     }
   ];
 
-  var laptop = document.getElementById('laptop');
-  if (laptop) {
-    var slides = Array.prototype.slice.call(laptop.querySelectorAll('.slide'));
-    var dots = Array.prototype.slice.call(document.querySelectorAll('#storyDots .dot-btn'));
-    var titleEl = document.getElementById('storyTitle');
-    var authorEl = document.getElementById('storyAuthor');
-    var avatarEl = document.getElementById('storyAvatar');
-    var linkEl = document.getElementById('screenLink');
-    var current = 0;
-    var locked = false;
-    var timer = null;
-    var AUTOPLAY_MS = 4500;
+  // Icons verbatim from Usf UiIcon.vue (viewBox 24, stroke 1.8)
+  var ICON_ATTRS = 'class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+  var ICONS = {
+    activity: '<svg ' + ICON_ATTRS + ' width="26" height="26"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    network: '<svg ' + ICON_ATTRS + ' width="26" height="26"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><line x1="12" y1="12" x2="12" y2="8"/></svg>',
+    shield: '<svg ' + ICON_ATTRS + ' width="26" height="26"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>',
+    layout: '<svg ' + ICON_ATTRS + ' width="26" height="26"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>'
+  };
 
-    function renderInfo() {
-      var s = STORIES[current];
-      if (titleEl) titleEl.textContent = s.title;
-      if (authorEl) authorEl.textContent = s.author;
-      if (avatarEl) avatarEl.innerHTML = s.icon;
-      if (linkEl) {
-        linkEl.href = s.href;
-        linkEl.setAttribute('aria-label', 'Open: ' + s.title);
-      }
-      dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+  // Same timings as VibeStories.vue
+  var AUTOPLAY_MS = 4000;      // startAutoplay interval
+  var PAGINATE_LOCK_MS = 800;  // next/prev guard
+  var TRANSITION_MS = 600;     // slide transition duration
+
+  var screenLink = container.querySelector('.screen-link');
+  var avatarEl = container.querySelector('.story-avatar');
+  var titleEl = container.querySelector('.story-title');
+  var authorEl = container.querySelector('.story-author');
+  var dots = Array.prototype.slice.call(container.querySelectorAll('.indicator-dot'));
+  var wrapperEl = container.querySelector('.laptop-wrapper');
+
+  var currentIndex = 0;
+  var isPaginating = false;
+  var autoplayTimer = null;
+
+  function story(i) { return STORIES[i] || STORIES[0]; }
+
+  // Keep story info, avatar icon, dots and links in sync with currentIndex
+  function syncInfo() {
+    var s = story(currentIndex);
+    if (avatarEl) avatarEl.innerHTML = ICONS[s.avatar] || '';
+    if (titleEl) {
+      titleEl.textContent = s.title;
+      titleEl.href = s.link;
     }
-
-    function goTo(index, dir) {
-      var n = (index + slides.length) % slides.length;
-      if (locked || n === current) return;
-      locked = true;
-      var d = dir || (n > current ? 'next' : 'prev');
-      slides[current].classList.remove('active');
-      slides[current].classList.add(d === 'next' ? 'pos-left' : 'pos-right');
-      slides[n].classList.remove('pos-left', 'pos-right');
-      slides[n].classList.add('active');
-      current = n;
-      renderInfo();
-      window.setTimeout(function () { locked = false; }, reduceMotion ? 60 : 700);
-    }
-    function nextSlide() { goTo(current + 1, 'next'); }
-    function prevSlide() { goTo(current - 1, 'prev'); }
-
-    function startAutoplay() {
-      if (reduceMotion || timer) return;
-      timer = window.setInterval(function () {
-        if (!locked) nextSlide();
-      }, AUTOPLAY_MS);
-    }
-    function stopAutoplay() {
-      if (timer) { window.clearInterval(timer); timer = null; }
-    }
-
-    renderInfo();
-
-    var prevBtn = document.getElementById('lapPrev');
-    var nextBtn = document.getElementById('lapNext');
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    dots.forEach(function (d, i) {
-      d.addEventListener('click', function () { goTo(i); });
+    if (authorEl) authorEl.textContent = 'Built with: ' + s.author;
+    if (screenLink) screenLink.href = s.link;
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('active', i === currentIndex);
     });
-
-    // Pause on hover / keyboard focus
-    laptop.addEventListener('mouseenter', stopAutoplay);
-    laptop.addEventListener('mouseleave', startAutoplay);
-    laptop.addEventListener('focusin', stopAutoplay);
-    laptop.addEventListener('focusout', startAutoplay);
-
-    // Keyboard navigation while focused inside the laptop area
-    laptop.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
-    });
-
-    // Touch swipe
-    var touchX = null;
-    laptop.addEventListener('touchstart', function (e) {
-      touchX = e.changedTouches[0].clientX;
-      stopAutoplay();
-    }, { passive: true });
-    laptop.addEventListener('touchend', function (e) {
-      if (touchX === null) return;
-      var dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 40) { dx < 0 ? nextSlide() : prevSlide(); }
-      touchX = null;
-      startAutoplay();
-    }, { passive: true });
-
-    // Horizontal wheel (trackpad) — mirrors the Usf behaviour
-    laptop.addEventListener('wheel', function (e) {
-      if (Math.abs(e.deltaX) > 20 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        e.preventDefault();
-        e.deltaX > 0 ? nextSlide() : prevSlide();
-      }
-    }, { passive: false });
-
-    // Autoplay only while the slider is actually on screen
-    if ('IntersectionObserver' in window) {
-      var lapIo = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          entry.isIntersecting ? startAutoplay() : stopAutoplay();
-        });
-      }, { threshold: 0.3 });
-      lapIo.observe(laptop);
-    } else {
-      startAutoplay();
-    }
   }
 
-  /* ---------- "More builds" rail: drag to scroll ---------- */
-  var rail = document.getElementById('rail');
-  if (rail) {
-    var isDown = false, startX = 0, startLeft = 0, moved = false;
-    rail.addEventListener('pointerdown', function (e) {
-      if (e.pointerType === 'touch') return; // native scroll on touch
-      isDown = true; moved = false;
-      startX = e.clientX;
-      startLeft = rail.scrollLeft;
-      rail.classList.add('dragging');
-    });
-    window.addEventListener('pointermove', function (e) {
-      if (!isDown) return;
-      var dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      rail.scrollLeft = startLeft - dx;
-    });
-    window.addEventListener('pointerup', function () {
-      if (!isDown) return;
-      isDown = false;
-      rail.classList.remove('dragging');
-    });
-    // Prevent accidental link opens right after a drag
-    rail.addEventListener('click', function (e) {
-      if (moved) { e.preventDefault(); moved = false; }
-    });
+  function mountImage(s) {
+    var wrap = document.createElement('div');
+    wrap.className = 'screen-image-wrapper';
+    var img = document.createElement('img');
+    img.className = 'screen-image';
+    img.src = s.image;
+    img.srcset = s.srcset;
+    img.sizes = '(max-width: 760px) 62vw, 440px';
+    img.alt = 'Story cover';
+    img.width = 1280;
+    img.height = s.imageHeight;
+    img.style.objectPosition = s.objectPosition;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.setAttribute('fetchpriority', 'low');
+    wrap.appendChild(img);
+    return wrap;
   }
+
+  // Mimic Vue <transition name="slide-left|slide-right">
+  function slideTo(index, name) {
+    var enter = mountImage(story(index));
+    screenLink.appendChild(enter);
+
+    var leaving = [];
+    Array.prototype.forEach.call(screenLink.querySelectorAll('.screen-image-wrapper'), function (el) {
+      if (el !== enter) leaving.push(el);
+    });
+
+    enter.classList.add(name + '-enter-active', name + '-enter-from');
+    leaving.forEach(function (el) { el.classList.add(name + '-leave-active'); });
+    void enter.offsetWidth; // force reflow so the enter-from state applies
+    enter.classList.remove(name + '-enter-from');
+    leaving.forEach(function (el) { el.classList.add(name + '-leave-to'); });
+
+    window.setTimeout(function () {
+      enter.classList.remove(name + '-enter-active');
+      leaving.forEach(function (el) {
+        if (el.parentNode) el.parentNode.removeChild(el);
+      });
+    }, TRANSITION_MS);
+  }
+
+  var next = function () {
+    if (isPaginating) return;
+    isPaginating = true;
+    slideTo((currentIndex + 1) % STORIES.length, 'slide-left');
+    currentIndex = (currentIndex + 1) % STORIES.length;
+    syncInfo();
+    window.setTimeout(function () { isPaginating = false; }, PAGINATE_LOCK_MS);
+  };
+
+  var prev = function () {
+    if (isPaginating) return;
+    isPaginating = true;
+    slideTo((currentIndex - 1 + STORIES.length) % STORIES.length, 'slide-right');
+    currentIndex = (currentIndex - 1 + STORIES.length) % STORIES.length;
+    syncInfo();
+    window.setTimeout(function () { isPaginating = false; }, PAGINATE_LOCK_MS);
+  };
+
+  var setIndex = function (index) {
+    if (index === currentIndex) return;
+    slideTo(index, index > currentIndex ? 'slide-left' : 'slide-right');
+    currentIndex = index;
+    syncInfo();
+  };
+
+  var startAutoplay = function () {
+    stopAutoplay();
+    autoplayTimer = window.setInterval(function () {
+      if (!isPaginating) {
+        slideTo((currentIndex + 1) % STORIES.length, 'slide-left');
+        currentIndex = (currentIndex + 1) % STORIES.length;
+        syncInfo();
+      }
+    }, AUTOPLAY_MS);
+  };
+
+  var stopAutoplay = function () {
+    if (autoplayTimer) {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  };
+
+  // Controls
+  var prevBtn = container.querySelector('.nav-btn.prev');
+  var nextBtn = container.querySelector('.nav-btn.next');
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { setIndex(i); });
+  });
+
+  // Pause autoplay on hover — same as @mouseenter/@mouseleave in VibeStories.vue
+  if (wrapperEl) {
+    wrapperEl.addEventListener('mouseenter', stopAutoplay);
+    wrapperEl.addEventListener('mouseleave', startAutoplay);
+  }
+
+  // Horizontal trackpad/wheel — same thresholds as VibeStories.vue
+  container.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaX) > 20 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      e.preventDefault();
+      if (e.deltaX > 0) {
+        next();
+      } else {
+        prev();
+      }
+    }
+  }, { passive: false });
+
+  syncInfo();
+  startAutoplay();
 })();
