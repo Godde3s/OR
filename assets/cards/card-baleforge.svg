@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f093fb"/>
+      <stop offset="100%" stop-color="#f5576c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1672" height="941" fill="url(#bg)"/>
+  <g opacity="0.25" stroke="#ffffff" stroke-width="3" fill="none">
+    <circle cx="220" cy="180" r="90"/><circle cx="1480" cy="760" r="130"/>
+    <circle cx="1380" cy="150" r="60"/><circle cx="160" cy="800" r="70"/>
+  </g>
+  <g opacity="0.35" font-family="SFMono-Regular, Consolas, monospace" font-size="30" fill="#ffffff">
+    <text x="120" y="770">&#123;&#125;</text>
+    <text x="1500" y="240">&lt;/&gt;</text>
+  </g>
+  <rect x="770" y="430" width="132" height="100" rx="22" fill="none" stroke="#ffffff" stroke-width="14"/><circle cx="810" cy="475" r="11" fill="#ffffff"/><circle cx="862" cy="475" r="11" fill="#ffffff"/><path d="M 836 395 v35" stroke="#ffffff" stroke-width="12"/><circle cx="836" cy="388" r="12" fill="#ffffff"/>
+  <text x="836" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff" text-anchor="middle">BaleForge</text>
+  <text x="836" y="710" font-family="'Segoe UI', Arial, sans-serif" font-size="36" fill="#ffffff" opacity="0.85" text-anchor="middle">Async bot framework · AI agents</text>
+  <text x="836" y="880" font-family="'Segoe UI', Arial, sans-serif" font-size="26" letter-spacing="8" fill="#ffffff" opacity="0.6" text-anchor="middle">GODDE3S · USF</text>
+</svg>

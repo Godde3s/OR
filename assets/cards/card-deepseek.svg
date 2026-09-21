@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8EC5FC"/>
+      <stop offset="100%" stop-color="#E0C3FC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1672" height="941" fill="url(#bg)"/>
+  <g opacity="0.25" stroke="#1e2a4a" stroke-width="3" fill="none">
+    <circle cx="220" cy="180" r="90"/><circle cx="1480" cy="760" r="130"/>
+    <circle cx="1380" cy="150" r="60"/><circle cx="160" cy="800" r="70"/>
+  </g>
+  <g opacity="0.35" font-family="SFMono-Regular, Consolas, monospace" font-size="30" fill="#1e2a4a">
+    <text x="120" y="770">&#123;&#125;</text>
+    <text x="1500" y="240">&lt;/&gt;</text>
+  </g>
+  <path d="M 762 500 h 50 a 24 60 0 0 1 48 0 h 50" fill="none" stroke="#1e2a4a" stroke-width="13" stroke-linecap="round"/><path d="M 762 440 h 50 a 24 60 0 0 0 48 0 h 50" fill="none" stroke="#1e2a4a" stroke-width="13" stroke-linecap="round"/><circle cx="762" cy="500" r="10" fill="#1e2a4a"/><circle cx="910" cy="500" r="10" fill="#1e2a4a"/><circle cx="762" cy="440" r="10" fill="#1e2a4a"/><circle cx="910" cy="440" r="10" fill="#1e2a4a"/>
+  <text x="836" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="76" font-weight="800" fill="#1e2a4a" text-anchor="middle">DeepSeek API</text>
+  <text x="836" y="710" font-family="'Segoe UI', Arial, sans-serif" font-size="36" fill="#1e2a4a" opacity="0.85" text-anchor="middle">Free bridge · account pool</text>
+  <text x="836" y="880" font-family="'Segoe UI', Arial, sans-serif" font-size="26" letter-spacing="8" fill="#1e2a4a" opacity="0.6" text-anchor="middle">GODDE3S · USF</text>
+</svg>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,18 @@
   <meta property="og:description" content="Web, networking, AI infrastructure and industrial automation — designed, built and shipped end-to-end by one engineer.">
   <meta property="og:url" content="https://godde3s.github.io/OR/">
   <meta property="og:image" content="https://godde3s.github.io/OR/assets/avatar.jpg">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0e1f" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('or-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -34,9 +45,15 @@
       <a href="#contact">Contact</a>
       <a class="btn btn-ghost btn-sm nav-gh" href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <svg class="ico-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="ico-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -71,16 +88,18 @@
           <button class="nb-run" id="runBtn" type="button" aria-label="Run all cells">&#9654; Run all</button>
         </div>
         <div class="nb-cell nb-code">
-          <div class="nb-gutter mono">[1]</div>
+          <div class="nb-lines mono" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
           <pre class="mono"><code><span class="c"># whoami</span>
 <span class="k">class</span> <span class="fn">Engineer</span>:
+    <span class="d">"""Full-stack, end to end."""</span>
+
     name  = <span class="s">"Reza Bazdar"</span>
     alias = <span class="s">"Godde3s"</span>
     stack = [<span class="s">"Python"</span>, <span class="s">"Go"</span>, <span class="s">"TS"</span>, <span class="s">"C#"</span>]
     focus = [<span class="s">"web"</span>, <span class="s">"networking"</span>,
              <span class="s">"AI infra"</span>, <span class="s">"automation"</span>]
 
-    <span class="k">def</span> <span class="fn">status</span>(<span class="v">self</span>):
+    <span class="k">def</span> <span class="fn">status</span>(<span class="v">self</span>) -&gt; <span class="t">str</span>:
         <span class="k">return</span> <span class="s">"shipping"</span></code></pre>
         </div>
         <div class="nb-cell nb-out">
@@ -88,6 +107,13 @@
           <div class="nb-out-body">
             <span class="ok">&#10003;</span> <strong>Reza Bazdar</strong> · Creative Software Engineer
             <div class="nb-out-dim">status: shipping — 43 public repos, all live</div>
+            <div class="nb-chart" role="img" aria-label="Bar chart: languages by repo count">
+              <div class="nb-row"><span>Python</span><i style="--w:93%"></i></div>
+              <div class="nb-row"><span>JavaScript</span><i style="--w:57%"></i></div>
+              <div class="nb-row"><span>Go</span><i style="--w:36%"></i></div>
+              <div class="nb-row"><span>TypeScript</span><i style="--w:14%"></i></div>
+            </div>
+            <div class="nb-out-dim">languages by repo count</div>
           </div>
         </div>
         <div class="nb-cell nb-md">
@@ -107,6 +133,51 @@
         <li>C</li><li>PHP</li><li>Ruby</li><li>HTML / CSS</li><li>SQL</li>
         <li>Node.js</li><li>Next.js</li><li>FastAPI</li><li>Docker</li><li>Linux</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ============ STORIES — laptop slider ============ -->
+  <section class="section stories" id="stories">
+    <div class="container">
+      <header class="section-head center-head reveal">
+        <span class="eyebrow">Project stories</span>
+        <h2>Real projects, <em>built in public.</em></h2>
+        <p class="lede">Four builds, four stories — slide through the highlights.</p>
+      </header>
+
+      <div class="laptop reveal" id="laptop">
+        <button class="lap-btn prev" id="lapPrev" type="button" aria-label="Previous story">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="lap-btn next" id="lapNext" type="button" aria-label="Next story">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+
+        <div class="laptop-screen" id="laptopScreen">
+          <a class="screen-link" id="screenLink" href="https://github.com/Godde3s/netpilot" target="_blank" rel="noopener" aria-label="Open featured build">
+            <div class="slide pos-right active"><img src="assets/stories/story-1.webp" srcset="assets/stories/story-1-640.webp 640w, assets/stories/story-1.webp 1280w" sizes="(max-width: 760px) 62vw, 440px" alt="netpilot — network toolkit cover" width="1280" height="959" style="object-position:center center" loading="lazy" decoding="async"></div>
+            <div class="slide pos-right"><img src="assets/stories/story-2.webp" srcset="assets/stories/story-2-640.webp 640w, assets/stories/story-2.webp 1280w" sizes="(max-width: 760px) 62vw, 440px" alt="omnirouter — model router cover" width="1280" height="700" style="object-position:center center" loading="lazy" decoding="async"></div>
+            <div class="slide pos-right"><img src="assets/stories/story-3.webp" srcset="assets/stories/story-3-640.webp 640w, assets/stories/story-3.webp 1280w" sizes="(max-width: 760px) 62vw, 440px" alt="Usf Panel — VLESS panel cover" width="1280" height="768" style="object-position:34% center" loading="lazy" decoding="async"></div>
+            <div class="slide pos-right"><img src="assets/stories/story-4.webp" srcset="assets/stories/story-4-640.webp 640w, assets/stories/story-4.webp 1280w" sizes="(max-width: 760px) 62vw, 440px" alt="Usf portfolio cover" width="1280" height="992" style="object-position:center center" loading="lazy" decoding="async"></div>
+          </a>
+        </div>
+        <img class="laptop-frame" src="assets/stories/macbook-frame.webp" alt="" aria-hidden="true" width="1400" height="813" loading="lazy" decoding="async">
+
+        <div class="story-info">
+          <div class="story-avatar" id="storyAvatar" aria-hidden="true"></div>
+          <div class="story-text">
+            <a class="story-title" id="storyTitle" href="https://github.com/Godde3s/netpilot" target="_blank" rel="noopener">One binary that answers every network question</a>
+            <div class="story-author" id="storyAuthor">Built with: netpilot · Go</div>
+          </div>
+        </div>
+
+        <div class="dots" id="storyDots" role="tablist" aria-label="Choose story">
+          <button class="dot-btn active" type="button" aria-label="Story 1"></button>
+          <button class="dot-btn" type="button" aria-label="Story 2"></button>
+          <button class="dot-btn" type="button" aria-label="Story 3"></button>
+          <button class="dot-btn" type="button" aria-label="Story 4"></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -174,9 +245,30 @@
           <a class="card-link" href="https://github.com/Godde3s/modbuslite" target="_blank" rel="noopener">View on GitHub<span aria-hidden="true"> &rarr;</span></a>
         </article>
       </div>
-
-      <p class="center reveal"><a class="btn btn-ghost" href="https://github.com/Godde3s?tab=repositories" target="_blank" rel="noopener">View all 43 repositories</a></p>
     </div>
+  </section>
+
+  <!-- ============ MORE BUILDS RAIL ============ -->
+  <section class="rail-section" aria-label="More builds">
+    <div class="container rail-head reveal">
+      <h2>More builds</h2>
+      <p>Drag, swipe or scroll sideways — 12 more, straight from the forge.</p>
+    </div>
+    <div class="rail" id="rail">
+      <a class="rail-card" href="https://github.com/Godde3s/goftego" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#4facfe"><img src="assets/cards/card-goftego.svg" alt="Goftego illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>Goftego</h4><p>Self-hosted chat, realtime to the core.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/veilchat" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#667eea"><img src="assets/cards/card-veilchat.svg" alt="VeilChat illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>VeilChat</h4><p>Encrypted P2P, zero servers.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/baleforge" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#f5576c"><img src="assets/cards/card-baleforge.svg" alt="BaleForge illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>BaleForge</h4><p>Async bot framework with FSM.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/snaplink" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#30cfd0"><img src="assets/cards/card-snaplink.svg" alt="Snaplink illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>Snaplink</h4><p>Short links, full analytics.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/habitgrid" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#a8edea"><img src="assets/cards/card-habitgrid.svg" alt="HabitGrid illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>HabitGrid</h4><p>Offline-first habit tracking.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/bale-php" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#fcb69f"><img src="assets/cards/card-bale-php.svg" alt="BalePhp illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>BalePhp</h4><p>Zero-dependency PHP 8.2 SDK.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/modbuslite" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#c3cfe2"><img src="assets/cards/card-modbuslite.svg" alt="ModbusLite illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>ModbusLite</h4><p>Industrial Modbus for .NET 8.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/deepseek-free-api" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#E0C3FC"><img src="assets/cards/card-deepseek.svg" alt="DeepSeek Free API illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>DeepSeek Free API</h4><p>Multi-account bridge, streaming.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/qwen-free-api" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#96E6A1"><img src="assets/cards/card-qwen.svg" alt="Qwen Free API illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>Qwen Free API</h4><p>Single-file Go bridge.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/gemini-free-api" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#fbc2eb"><img src="assets/cards/card-gemini.svg" alt="Gemini Free API illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>Gemini Free API</h4><p>Guest-mode Gemini, one binary.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/ghost-brain" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#8EC5FC"><img src="assets/cards/stage2-4-ghostbrain.webp" alt="GhostBrain illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>GhostBrain</h4><p>Free Gemini to real API.</p></div></a>
+      <a class="rail-card" href="https://github.com/Godde3s/hermes-stack" target="_blank" rel="noopener"><div class="rail-visual" style="--tint:#2AF598"><img src="assets/cards/stage2-5-hermesstack.webp" alt="Hermes Stack illustration" loading="lazy" decoding="async"></div><div class="rail-text"><h4>Hermes Stack</h4><p>Agent stack, one-click deploy.</p></div></a>
+    </div>
+    <p class="center rail-more reveal"><a class="btn btn-ghost" href="https://github.com/Godde3s?tab=repositories" target="_blank" rel="noopener">View all 43 repositories</a></p>
   </section>
 
   <!-- ============ SKILLS ============ -->
@@ -273,7 +365,7 @@
 <footer class="footer">
   <div class="container footer-inner">
     <p>&copy; <span id="year">2026</span> Reza Bazdar (Godde3s). All rights reserved.</p>
-    <p class="footer-dim">Design inspired by <a href="https://deepnote.com" target="_blank" rel="noopener">deepnote.com</a> — rebuilt from scratch as <span class="mono">OR</span>.</p>
+    <p class="footer-dim">Design inspired by <a href="https://deepnote.com" target="_blank" rel="noopener">deepnote.com</a> — rebuilt from scratch as <span class="mono">OR</span>. MacBook slider from <a href="https://godde3s.github.io/Usf/" target="_blank" rel="noopener">Usf</a>.</p>
     <div class="footer-links">
       <a href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub</a>
       <a href="https://godde3s.github.io/Usf/" target="_blank" rel="noopener">Usf</a>
