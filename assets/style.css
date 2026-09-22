@@ -124,7 +124,9 @@ h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; }
   radial-gradient(900px 420px at 85% -10%, rgba(123,97,255,.10), transparent 65%),
   radial-gradient(700px 380px at -10% 20%, rgba(20,110,254,.05), transparent 60%);
 }
-.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.hero-solo { max-width: 800px; margin: 0 auto; text-align: center; }
+.hero-solo .lede { margin-left: auto; margin-right: auto; }
+.hero-solo .hero-cta, .hero-solo .hero-meta { justify-content: center; }
 .hero h1 { font-size: clamp(34px, 4.6vw, 54px); font-weight: 800; margin: 18px 0 18px; }
 .hero h1 em { font-style: normal; color: var(--purple-deep); position: relative; }
 .hero h1 em::after {
@@ -143,6 +145,7 @@ h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; }
   background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg); overflow: hidden;
 }
+.notebook-solo { max-width: 640px; margin: 0 auto; }
 .nb-chrome {
   display: flex; align-items: center; gap: 7px; padding: 12px 16px;
   border-bottom: 1px solid var(--border); background: var(--soft);
@@ -296,7 +299,7 @@ h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; }
 }
 
 /* ---------- Project stories laptop (styles ported verbatim from Usf VibeStories.vue) ---------- */
-.stories-section { padding: 88px 0 48px; }
+.stories-section { padding: 8px 0 72px; }
 
 .vibe-stories-container {
   max-width: 1120px;
@@ -621,8 +624,6 @@ h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; }
 @media (max-width: 1020px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .skill-grid, .agent-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-  .notebook { max-width: 620px; }
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
 }
 
