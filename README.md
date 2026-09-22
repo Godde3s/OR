@@ -10,12 +10,14 @@ A single-page portfolio built with plain HTML, CSS and vanilla JavaScript — no
 
 ## Sections
 
-- Hero with an interactive notebook mockup (press **Run all**)
+- Hero
+- Project stories — MacBook slider (ported from the Usf portfolio)
 - Selected projects — every card links to a working public repository
 - Skills toolbox
 - Agentic coding stack (OpenCode, Codex, Claude Code, Hermes)
 - About + stats
 - Contact CTA
+- Interactive notebook playground — press **Run all**
 
 ## Stack
 
