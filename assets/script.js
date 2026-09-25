@@ -96,9 +96,9 @@
   var STORIES = [
     {
       id: 1,
-      title: 'One binary that answers every network question',
-      author: 'netpilot · Go',
-      avatar: 'activity',
+      title: 'A backend where every security claim has a test',
+      author: 'taskflow-api · Python',
+      avatar: 'shield',
       image: 'assets/stories/story-1.webp',
       srcset: 'assets/stories/story-1-640.webp 640w, assets/stories/story-1.webp 1280w',
       imageHeight: 959,
@@ -107,34 +107,34 @@
     },
     {
       id: 2,
-      title: 'One router in front of every AI model',
-      author: 'omnirouter · Go',
+      title: 'A messenger with no server to breach',
+      author: 'veilchat · Python',
       avatar: 'network',
       image: 'assets/stories/story-2.webp',
       srcset: 'assets/stories/story-2-640.webp 640w, assets/stories/story-2.webp 1280w',
-      imageHeight: 700,
+      imageHeight: 959,
       objectPosition: 'center center',
       link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-2/'
     },
     {
       id: 3,
-      title: 'A VLESS panel that survives real censorship',
-      author: 'Usf Panel · Python',
-      avatar: 'shield',
+      title: 'NLP that ships like a real service',
+      author: 'textsense · Python',
+      avatar: 'activity',
       image: 'assets/stories/story-3.webp',
       srcset: 'assets/stories/story-3-640.webp 640w, assets/stories/story-3.webp 1280w',
-      imageHeight: 768,
-      objectPosition: '34% center',
+      imageHeight: 959,
+      objectPosition: 'center center',
       link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-3/'
     },
     {
       id: 4,
-      title: 'This portfolio — four languages, one VitePress',
-      author: 'Usf · Vue',
+      title: 'Realtime chat you self-host in one command',
+      author: 'goftego · Node.js',
       avatar: 'layout',
       image: 'assets/stories/story-4.webp',
       srcset: 'assets/stories/story-4-640.webp 640w, assets/stories/story-4.webp 1280w',
-      imageHeight: 992,
+      imageHeight: 959,
       objectPosition: 'center center',
       link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-4/'
     }
