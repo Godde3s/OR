@@ -1,4 +1,4 @@
-/* OR — portfolio interactions (vanilla, no dependencies) */
+/* OR — portfolio interactions (vanilla, no dependencies) · v6 */
 (function () {
   'use strict';
 
@@ -68,7 +68,6 @@
       }, 700);
     };
     runBtn.addEventListener('click', run);
-    // Auto-run once when the notebook first scrolls into view
     if ('IntersectionObserver' in window) {
       var nbIo = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -83,6 +82,126 @@
       notebook.classList.add('ran');
     }
   }
+
+  /* ---- Deepnote-style hero toggle: lens slides between words ---- */
+  (function () {
+    var toggle = document.getElementById('heroToggle');
+    if (!toggle) return;
+    var lens = toggle.querySelector('.lens');
+    var opts = Array.prototype.slice.call(toggle.querySelectorAll('.opt'));
+    var idx = 0;
+    var timer = null;
+
+    function position(instant) {
+      var opt = opts[idx];
+      if (!opt || !lens) return;
+      var pad = parseFloat(getComputedStyle(toggle).paddingTop) || 7;
+      if (instant) lens.style.transition = 'none';
+      lens.style.width = opt.offsetWidth + 'px';
+      lens.style.transform = 'translateX(' + (opt.offsetLeft - pad) + 'px)';
+      if (instant) {
+        void lens.offsetWidth;
+        lens.style.transition = '';
+      }
+    }
+
+    function select(i) {
+      idx = (i + opts.length) % opts.length;
+      opts.forEach(function (o, j) {
+        o.classList.toggle('is-active', j === idx);
+        o.setAttribute('aria-selected', String(j === idx));
+      });
+      position(false);
+    }
+
+    opts.forEach(function (o, i) {
+      o.addEventListener('click', function () {
+        select(i);
+        restart(); // manual interaction resets the cycle
+      });
+    });
+
+    function start() {
+      timer = window.setInterval(function () { select(idx + 1); }, 3800);
+    }
+    function stop() {
+      if (timer) { window.clearInterval(timer); timer = null; }
+    }
+    function restart() { stop(); start(); }
+
+    toggle.addEventListener('mouseenter', stop);
+    toggle.addEventListener('mouseleave', start);
+    window.addEventListener('resize', function () { position(true); });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { position(true); });
+    }
+    window.setTimeout(function () { position(true); }, 60);
+    start();
+  })();
+
+  /* ---- Agentic section — Deepnote lens tabs over a cinematic stage ---- */
+  (function () {
+    var theater = document.getElementById('agentTheater');
+    if (!theater) return;
+    var tabs = Array.prototype.slice.call(theater.querySelectorAll('.agent-tabs .opt'));
+    var lens = theater.querySelector('.agent-tabs .lens');
+    var panels = Array.prototype.slice.call(theater.querySelectorAll('.agent-panel'));
+    var titleEl = document.getElementById('agentTabTitle');
+    var idx = 0;
+    var timer = null;
+
+    var TITLES = {
+      opencode: 'opencode — pair programming',
+      codex: 'codex — parallel sandboxes',
+      claude: 'claude code — architecture sweeps',
+      hermes: 'hermes — orchestration tower'
+    };
+
+    function positionLens() {
+      var opt = tabs[idx];
+      if (!opt || !lens) return;
+      var pad = parseFloat(getComputedStyle(theater.querySelector('.agent-tabs')).paddingLeft) || 6;
+      lens.style.width = opt.offsetWidth + 'px';
+      lens.style.transform = 'translateX(' + (opt.offsetLeft - pad) + 'px)';
+    }
+
+    function select(i) {
+      idx = (i + tabs.length) % tabs.length;
+      tabs.forEach(function (t, j) {
+        t.classList.toggle('is-active', j === idx);
+        t.setAttribute('aria-selected', String(j === idx));
+      });
+      panels.forEach(function (p, j) {
+        p.classList.toggle('is-active', j === idx);
+      });
+      if (titleEl) titleEl.textContent = TITLES[panels[idx].getAttribute('data-agent')] || '';
+      positionLens();
+    }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () {
+        select(i);
+        restart();
+      });
+    });
+
+    function start() {
+      timer = window.setInterval(function () { select(idx + 1); }, 6000);
+    }
+    function stop() {
+      if (timer) { window.clearInterval(timer); timer = null; }
+    }
+    function restart() { stop(); start(); }
+
+    theater.addEventListener('mouseenter', stop);
+    theater.addEventListener('mouseleave', start);
+    window.addEventListener('resize', positionLens);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(positionLens);
+    }
+    window.setTimeout(positionLens, 60);
+    start();
+  })();
 })();
 
 /* ---- Project stories laptop — faithful vanilla port of Usf VibeStories.vue ---- */
@@ -92,7 +211,6 @@
   var container = document.getElementById('vibeStories');
   if (!container) return;
 
-  // Same data (EN defaults) as `tStories` in VibeStories.vue
   var STORIES = [
     {
       id: 1,
@@ -140,7 +258,6 @@
     }
   ];
 
-  // Icons verbatim from Usf UiIcon.vue (viewBox 24, stroke 1.8)
   var ICON_ATTRS = 'class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
   var ICONS = {
     activity: '<svg ' + ICON_ATTRS + ' width="26" height="26"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
@@ -149,10 +266,9 @@
     layout: '<svg ' + ICON_ATTRS + ' width="26" height="26"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>'
   };
 
-  // Same timings as VibeStories.vue
-  var AUTOPLAY_MS = 4000;      // startAutoplay interval
-  var PAGINATE_LOCK_MS = 800;  // next/prev guard
-  var TRANSITION_MS = 600;     // slide transition duration
+  var AUTOPLAY_MS = 4000;
+  var PAGINATE_LOCK_MS = 800;
+  var TRANSITION_MS = 600;
 
   var screenLink = container.querySelector('.screen-link');
   var avatarEl = container.querySelector('.story-avatar');
@@ -167,7 +283,6 @@
 
   function story(i) { return STORIES[i] || STORIES[0]; }
 
-  // Keep story info, avatar icon, dots and links in sync with currentIndex
   function syncInfo() {
     var s = story(currentIndex);
     if (avatarEl) avatarEl.innerHTML = ICONS[s.avatar] || '';
@@ -201,7 +316,6 @@
     return wrap;
   }
 
-  // Mimic Vue <transition name="slide-left|slide-right">
   function slideTo(index, name) {
     var enter = mountImage(story(index));
     screenLink.appendChild(enter);
@@ -268,7 +382,6 @@
     }
   };
 
-  // Controls
   var prevBtn = container.querySelector('.nav-btn.prev');
   var nextBtn = container.querySelector('.nav-btn.next');
   if (prevBtn) prevBtn.addEventListener('click', prev);
@@ -277,13 +390,11 @@
     dot.addEventListener('click', function () { setIndex(i); });
   });
 
-  // Pause autoplay on hover — same as @mouseenter/@mouseleave in VibeStories.vue
   if (wrapperEl) {
     wrapperEl.addEventListener('mouseenter', stopAutoplay);
     wrapperEl.addEventListener('mouseleave', startAutoplay);
   }
 
-  // Horizontal trackpad/wheel — same thresholds as VibeStories.vue
   container.addEventListener('wheel', function (e) {
     if (Math.abs(e.deltaX) > 20 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
       e.preventDefault();
