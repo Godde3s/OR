@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=8">
+  <link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -94,6 +94,90 @@
               <a class="btn btn-primary" href="#agentic">My superpower</a>
               <a class="btn btn-ghost" href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub profile</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deepnote-style hero cards: humans row = light product cards, agents row = dark agent cards -->
+    <div class="hero-cards" aria-hidden="true">
+      <div class="hc-row humans">
+        <div class="hc stack-left">
+          <div class="hc-art light card-api">
+            <div class="card-note"><span>every claim has a test</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
+            <div class="art-bar"><span class="filename">taskflow-api · FastAPI<i class="live-badge">live app</i></span><span class="badge"><span class="av-ini">TF</span></span></div>
+            <div class="api-checks">
+              <div><i class="ck"></i><span class="mono">test_jwt_rejects_expired</span><b>passed</b></div>
+              <div><i class="ck"></i><span class="mono">test_rate_limit_blocks_flood</span><b>passed</b></div>
+              <div><i class="ck"></i><span class="mono">test_injection_sanitized</span><b>passed</b></div>
+              <div><i class="ck"></i><span class="mono">test_refresh_token_rotation</span><b>passed</b></div>
+            </div>
+            <div class="art-pill"><span class="dot"></span>every security claim — backed by a test</div>
+          </div>
+        </div>
+        <div class="hc stack-center">
+          <div class="hc-art light card-chat">
+            <div class="card-note"><span>no server to breach</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
+            <div class="art-bar"><span class="filename">veilchat · p2p messenger</span><span class="badge"><span class="av-ini g">VC</span></span></div>
+            <div class="chat-stream">
+              <div class="bubble in">handshake complete — keys live on our devices only</div>
+              <div class="bubble out">so even a breached relay reads nothing?</div>
+              <div class="bubble in">there is no server in the middle.</div>
+            </div>
+            <div class="crypto-chips"><span>X25519</span><span>ChaCha20-Poly1305</span><span>E2E</span></div>
+            <div class="art-pill"><span class="dot"></span>encrypted end-to-end · by design</div>
+          </div>
+        </div>
+        <div class="hc stack-right">
+          <div class="hc-art light card-nlp">
+            <div class="card-note"><span>ships like a real service</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
+            <div class="art-bar"><span class="filename">textsense · NLP service</span><span class="badge"><span class="av-ini p">TS</span></span></div>
+            <div class="code-block"><div class="lab">POST /analyze</div><span class="k">"text"</span>: "does this review feel positive?"<br><span class="k">"lang"</span>: auto-detected</div>
+            <div class="hbars">
+              <div class="hbar"><label>sentiment</label><div class="track"><i style="width:78%"></i></div><b>positive</b></div>
+              <div class="hbar tr"><label>intent</label><div class="track"><i style="width:64%"></i></div><b>feedback</b></div>
+            </div>
+            <div class="art-pill"><span class="dot"></span>deployed · ready behind an API key</div>
+          </div>
+        </div>
+      </div>
+      <div class="hc-row agents">
+        <div class="hc stack-left">
+          <div class="hc-art dark card-codex">
+            <div class="card-note"><span>twelve tasks, twelve workers</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
+            <div class="term-head"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="term-title">Codex — parallel sandboxes</span></div>
+            <div class="sandbox-grid">
+              <span class="sb done">t-01</span><span class="sb done">t-02</span><span class="sb done">t-03</span><span class="sb done">t-04</span>
+              <span class="sb done">t-05</span><span class="sb done">t-06</span><span class="sb done">t-07</span><span class="sb done">t-08</span>
+              <span class="sb done">t-09</span><span class="sb done">t-10</span><span class="sb run">t-11</span><span class="sb run">t-12</span>
+            </div>
+            <div class="term-line ok">all sandboxes merged in one review pass</div>
+          </div>
+        </div>
+        <div class="hc stack-center">
+          <div class="hc-art dark card-claude">
+            <div class="card-note"><span>architectural sweeps</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
+            <div class="term-head"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="term-title">Claude Code — ~/goftego</span></div>
+            <div class="term-body">
+              <div><span class="tp">$</span> claude "sweep the realtime layer"</div>
+              <div class="t-dim">· multi-step plan created</div>
+              <div class="t-dim">· codebase-wide edits applied</div>
+              <div class="t-ok">✓ surgical &amp; review-ready</div>
+            </div>
+            <div class="term-line ok">plan → edit → verify — end to end</div>
+          </div>
+        </div>
+        <div class="hc stack-right">
+          <div class="hc-art dark card-hermes">
+            <div class="card-note"><span>the control tower</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
+            <div class="term-head"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="term-title">Hermes Agent — routing</span></div>
+            <div class="routes">
+              <div><b>chat</b><span class="arr">→</span><span class="mono">omnirouter → best model</span></div>
+              <div><b>code</b><span class="arr">→</span><span class="mono">OpenCode · terminal pair</span></div>
+              <div><b>fan-out</b><span class="arr">→</span><span class="mono">Codex · sandboxes</span></div>
+              <div><b>jobs</b><span class="arr">→</span><span class="mono">scheduled · automated</span></div>
+            </div>
+            <div class="art-pill inv"><span class="dot"></span>one stack orchestrating them all</div>
           </div>
         </div>
       </div>
@@ -380,6 +464,6 @@
   </div>
 </footer>
 
-<script src="assets/script.js?v=8"></script>
+<script src="assets/script.js?v=9"></script>
 </body>
 </html>
