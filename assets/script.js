@@ -304,6 +304,24 @@
     }
   }, { passive: false });
 
+  /* touch swipe — real mobile gesture (horizontal intent only, vertical scroll untouched) */
+  var touchX = 0, touchY = 0, touchT = 0;
+  container.addEventListener('touchstart', function (e) {
+    if (!e.touches.length) return;
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+    touchT = Date.now();
+  }, { passive: true });
+  container.addEventListener('touchend', function (e) {
+    if (!e.changedTouches.length) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    var dy = e.changedTouches[0].clientY - touchY;
+    if (Date.now() - touchT > 800) return;
+    if (Math.abs(dx) < 44 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+    if (dx < 0) { next(); } else { prev(); }
+    stopAutoplay(); startAutoplay();
+  }, { passive: true });
+
   syncInfo();
   startAutoplay();
 })();
