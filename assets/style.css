@@ -275,9 +275,9 @@ section[id] { scroll-margin-top: 84px; }
 }
 .hero[data-view="humans"] .hc-row.agents .hc, .hero[data-view="agents"] .hc-row.humans .hc { opacity: 0; translate: 0 74px; }
 .hero[data-view="humans"] .hc-row.humans .hc, .hero[data-view="agents"] .hc-row.agents .hc { opacity: 1; translate: 0 0; }
-.hc.stack-center { left: 50%; margin-left: -190px; width: 380px; top: 68px; z-index: 3; }
-.hc.stack-left  { left: calc(50% - 545px); top: 104px; transform: rotate(-6deg); z-index: 2; }
-.hc.stack-right { right: calc(50% - 545px); top: 112px; transform: rotate(6deg); z-index: 1; }
+.hc.stack-center { left: 50%; margin-left: -190px; width: 380px; top: 68px; bottom: 0; z-index: 3; }
+.hc.stack-left  { left: calc(50% - 545px); top: 92px; bottom: 0; transform: rotate(-6deg); z-index: 2; }
+.hc.stack-right { right: calc(50% - 545px); top: 92px; bottom: 0; transform: rotate(6deg); z-index: 1; }
 
 /* handwritten note above each card (deepnote card-note) */
 .card-note {
@@ -293,7 +293,8 @@ section[id] { scroll-margin-top: 84px; }
 @keyframes noteFloaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 /* card chrome */
-.hc-art { position: relative; border-radius: 16px; padding: 16px 16px 14px; }
+.hc-art { position: relative; border-radius: 16px; padding: 16px 16px 14px; height: 100%; display: flex; flex-direction: column; }
+.hc .hc-art > :last-child { margin-top: auto; padding-top: 12px; }
 .hc-art.light {
   background: #fff; border: 1px solid rgba(20, 24, 31, .08);
   box-shadow: 0 1px 2px rgba(20, 24, 31, .05), 0 26px 52px -20px rgba(13, 27, 62, .25);
@@ -318,9 +319,9 @@ section[id] { scroll-margin-top: 84px; }
 .av-ini { font-size: 10px; font-weight: 700; font-family: var(--display); }
 
 /* humans: taskflow checks */
-.api-checks { display: grid; gap: 8px; padding: 2px 0 4px; }
+.api-checks { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 2px 0 4px; }
 .api-checks > div { display: flex; align-items: center; gap: 8px; }
-.api-checks .mono { font-size: 11.5px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.api-checks .mono { font-size: 11.5px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .api-checks b { margin-left: auto; color: var(--green); font-size: 9.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; flex: none; }
 .ck { width: 16px; height: 16px; flex: none; border-radius: 50%; background: var(--green-soft); position: relative; }
 .ck::before { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 9.5px; font-weight: 800; color: var(--green); font-style: normal; }
@@ -674,13 +675,10 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .skill-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .annotation { display: none; }
 
-  /* hero cards: deliberate peek-fan — center card leads, sides peek from edges */
-  .hero-cards { height: 400px; }
-  .hc { width: min(56%, 430px); }
-  .hc.stack-center { width: min(56%, 430px); left: 50%; margin-left: calc(min(56%, 430px) / -2); top: 66px; transform: none; }
-  .hc.stack-left  { left: calc(44px - min(56%, 430px)); top: 96px; transform: rotate(-6deg); }
-  .hc.stack-right { right: calc(44px - min(56%, 430px)); top: 104px; transform: rotate(6deg); }
-  .hc.stack-left .card-note, .hc.stack-right .card-note { display: none; }
+  /* hero cards: full triptych — all three cards completely visible, notes kept */
+  .hero-cards { height: auto; display: grid; }
+  .hc-row { position: relative; inset: auto; grid-area: 1 / 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 66px 6px 10px; }
+  .hc, .hc.stack-center, .hc.stack-left, .hc.stack-right { position: relative; left: auto; right: auto; top: auto; bottom: auto; margin: 0; width: auto; transform: none; }
 }
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 34px; }
@@ -712,12 +710,12 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .hero-meta { gap: 10px 20px; margin-top: 16px; }
   .hero-meta li { font-size: 13.5px; }
 
-  /* hero cards: peek-fan sized for thumbs */
-  .hero-cards { height: 412px; margin-top: 12px; }
-  .hc { width: min(80%, 430px); }
-  .hc.stack-center { width: min(80%, 430px); margin-left: calc(min(80%, 430px) / -2); top: 64px; }
-  .hc.stack-left  { left: calc(26px - min(80%, 430px)); top: 94px; }
-  .hc.stack-right { right: calc(26px - min(80%, 430px)); top: 102px; }
+  /* hero cards: complete vertical stack — every card fully visible, notes kept */
+  .hero-cards { height: auto; display: grid; margin-top: 12px; }
+  .hc-row { position: relative; inset: auto; grid-area: 1 / 1; display: flex; flex-direction: column; align-items: center; gap: 72px; padding: 68px 0 12px; }
+  .hc, .hc.stack-center, .hc.stack-left, .hc.stack-right { position: relative; left: auto; right: auto; top: auto; bottom: auto; margin: 0; width: min(88%, 340px); transform: none; }
+  .hc.stack-left { transform: rotate(-1.6deg); }
+  .hc.stack-right { transform: rotate(1.6deg); }
   .bubble { font-size: 11.5px; padding: 7px 10px; }
   .term-body { font-size: 11px; }
   .api-checks .mono { font-size: 10.5px; }
