@@ -51,8 +51,9 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---- Deepnote-style humans <-> agents toggle ----
-     The lens slides; the whole hero copy crossfades to the matching state. */
+  /* ---- Deepnote humans <-> agents toggle (mechanics mirrored from deepnote.com) ----
+     data-view on .hero drives the lens color morph + white label + purple glow;
+     the lens slides via --lens-left/--lens-width; hero rows swap with deepnote curves. */
   (function () {
     var toggle = document.getElementById('heroToggle');
     if (!toggle) return;
@@ -65,10 +66,12 @@
     function position(instant) {
       var opt = opts[idx];
       if (!opt || !lens) return;
-      var pad = parseFloat(getComputedStyle(toggle).paddingTop) || 6;
+      var border = parseFloat(getComputedStyle(toggle).borderLeftWidth) || 0;
       if (instant) lens.style.transition = 'none';
-      lens.style.width = opt.offsetWidth + 'px';
-      lens.style.transform = 'translateX(' + (opt.offsetLeft - pad) + 'px)';
+      var tr = toggle.getBoundingClientRect();
+      var or = opt.getBoundingClientRect();
+      toggle.style.setProperty('--lens-left', Math.max(or.left - tr.left - border, 0) + 'px');
+      toggle.style.setProperty('--lens-width', or.width + 'px');
       if (instant) {
         void lens.offsetWidth;
         lens.style.transition = '';
@@ -77,6 +80,7 @@
 
     function select(i) {
       idx = (i + opts.length) % opts.length;
+      var mode = opts[idx].getAttribute('data-mode');
       opts.forEach(function (o, j) {
         o.classList.toggle('is-active', j === idx);
         o.setAttribute('aria-selected', String(j === idx));
@@ -86,7 +90,7 @@
         st.classList.toggle('is-active', on);
         st.setAttribute('aria-hidden', String(!on));
       });
-      if (hero) hero.classList.toggle('mode-agents', opts[idx].getAttribute('data-mode') === 'agents');
+      if (hero) hero.setAttribute('data-view', mode || 'humans');
       position(false);
     }
 
