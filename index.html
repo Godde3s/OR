@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Reza Bazdar (Godde3s) — Creative Software Engineer</title>
-  <meta name="description" content="Reza Bazdar (Godde3s) — full-stack software engineer. Web, networking, AI infrastructure and industrial automation, shipped end-to-end. Portfolio built as OR.">
+  <meta name="description" content="Reza Bazdar (Godde3s) — full-stack software engineer. Web, mobile & desktop apps, networking, IoT & industrial automation and AI infrastructure, shipped end-to-end.">
   <link rel="canonical" href="https://godde3s.github.io/OR/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Reza Bazdar (Godde3s) — Creative Software Engineer">
-  <meta property="og:description" content="Web, networking, AI infrastructure and industrial automation — designed, built and shipped end-to-end by one engineer.">
+  <meta property="og:description" content="Web, mobile & desktop apps, networking, IoT and AI infrastructure — designed, built and shipped end-to-end by one engineer.">
   <meta property="og:url" content="https://godde3s.github.io/OR/">
   <meta property="og:image" content="https://godde3s.github.io/OR/assets/avatar.jpg">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=13">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=14">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,12 +42,11 @@
 </header>
 
 <main id="main">
-  <!-- ============ HERO — Deepnote humans <-> agents toggle ============ -->
+  <!-- ============ HERO — short intro + one summary box ============ -->
   <section class="hero" id="top" data-view="humans">
     <div class="hero-bg" aria-hidden="true">
       <div class="hero-glow hero-glow-a"></div>
       <div class="hero-glow hero-glow-b"></div>
-      <div class="hero-grid"></div>
     </div>
     <div class="container hero-solo">
       <div class="hero-copy reveal">
@@ -60,20 +59,49 @@
         </div>
 
         <div class="hero-states">
-          <!-- humans -->
+          <!-- résumé -->
           <div class="hero-state is-active" data-state="humans" role="tabpanel" aria-label="Résumé view">
             <h1 class="display">
               <span class="display-line">Software, designed and</span>
               <span class="display-line">shipped end&#8209;to&#8209;end.</span>
             </h1>
             <p class="lede">
-              I&rsquo;m <strong>Reza Bazdar</strong> (<span class="mono">Godde3s</span>) — a full&#8209;stack software engineer.
-              Web apps, encrypted messengers, network tooling, AI infrastructure and industrial
-              automation: one engineer across the whole pipeline.
+              I&rsquo;m <strong>Reza Bazdar</strong> — full&#8209;stack engineer. Web, mobile &amp; desktop apps,
+              network tooling, IoT and AI infrastructure, from one pair of hands.
             </p>
             <div class="hero-cta">
               <a class="btn btn-primary" href="#projects">Explore projects</a>
               <a class="btn btn-ghost" href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub profile</a>
+            </div>
+
+            <!-- the summary box -->
+            <div class="resume-card">
+              <div class="rc-head">
+                <img class="rc-avatar" src="assets/avatar.jpg" alt="Portrait of Reza Bazdar" width="52" height="52">
+                <div class="rc-id">
+                  <b>Reza Bazdar</b>
+                  <span>Full-stack software engineer · Iran</span>
+                </div>
+                <a class="rc-handle mono" href="https://github.com/Godde3s" target="_blank" rel="noopener">@Godde3s</a>
+              </div>
+              <p class="rc-bio">
+                Security-first backends, realtime platforms, NLP services and PLC programs —
+                everything designed, built and shipped in public, docs and tests included.
+              </p>
+              <ul class="rc-chips" aria-label="Core stack">
+                <li class="core">JavaScript / TS</li>
+                <li class="core">Python</li>
+                <li class="core">Go</li>
+                <li>React Native · Expo</li>
+                <li>Tauri</li>
+                <li>Electron</li>
+                <li>PLC · LD / ST</li>
+                <li>Docker</li>
+                <li>PostgreSQL</li>
+              </ul>
+              <div class="rc-foot mono">
+                <span>28 public repos</span><i></i><span>everything runs</span><i></i><span>MIT licensed</span>
+              </div>
             </div>
           </div>
           <!-- agents -->
@@ -83,102 +111,26 @@
               <span class="display-line">I direct <span class="highlight">agent teams.</span></span>
             </h1>
             <p class="lede">
-              My daily drivers — orchestrated so every agent gets the right brain at the right time.
+              Four agents, one orchestrator — the right brain for every task.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#agentic">My superpower</a>
+              <a class="btn btn-primary" href="#agentic">See the stack</a>
               <a class="btn btn-ghost" href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub profile</a>
             </div>
-          </div>
-        </div>
 
-        <ul class="hero-meta">
-          <li><strong>28</strong> public repos</li>
-          <li><strong>10+</strong> languages</li>
-          <li>Everything <strong>runs</strong> — no vaporware</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Deepnote-style hero cards: humans row = light product cards, agents row = dark agent cards -->
-    <div class="hero-cards" aria-hidden="true">
-      <div class="hc-row humans">
-        <div class="hc stack-left">
-          <div class="hc-art light card-api">
-            <div class="card-note"><span>every claim has a test</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
-            <div class="art-bar"><span class="filename">taskflow-api · FastAPI<i class="live-badge">live app</i></span><span class="badge"><span class="av-ini">TF</span></span></div>
-            <div class="api-checks">
-              <div><i class="ck"></i><span class="mono">test_jwt_rejects_expired</span><b>passed</b></div>
-              <div><i class="ck"></i><span class="mono">test_rate_limit_blocks_flood</span><b>passed</b></div>
-              <div><i class="ck"></i><span class="mono">test_injection_sanitized</span><b>passed</b></div>
-              <div><i class="ck"></i><span class="mono">test_refresh_token_rotation</span><b>passed</b></div>
+            <!-- the summary box — agents edition -->
+            <div class="agents-card">
+              <div class="ac-head">
+                <span class="ac-label mono">agent stack</span>
+                <span class="ac-live"><i></i>directed daily</span>
+              </div>
+              <ul class="ac-list">
+                <li><b>Hermes Agent</b><span>the control tower — routes models, schedules jobs &amp; automations</span></li>
+                <li><b>Claude Code</b><span>multi-step planning, codebase-wide architectural sweeps</span></li>
+                <li><b>Codex</b><span>parallel sandboxes — twelve tasks, twelve workers, one review</span></li>
+                <li><b>OpenCode</b><span>terminal pair-programming through my own model router</span></li>
+              </ul>
             </div>
-            <div class="art-pill"><span class="dot"></span>every security claim — backed by a test</div>
-          </div>
-        </div>
-        <div class="hc stack-center">
-          <div class="hc-art light card-chat">
-            <div class="card-note"><span>no server to breach</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
-            <div class="art-bar"><span class="filename">veilchat · p2p messenger</span><span class="badge"><span class="av-ini g">VC</span></span></div>
-            <div class="chat-stream">
-              <div class="bubble in">handshake complete — keys live on our devices only</div>
-              <div class="bubble out">so even a breached relay reads nothing?</div>
-              <div class="bubble in">there is no server in the middle.</div>
-            </div>
-            <div class="crypto-chips"><span>X25519</span><span>ChaCha20-Poly1305</span><span>E2E</span></div>
-            <div class="art-pill"><span class="dot"></span>encrypted end-to-end · by design</div>
-          </div>
-        </div>
-        <div class="hc stack-right">
-          <div class="hc-art light card-nlp">
-            <div class="card-note"><span>ships like a real service</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
-            <div class="art-bar"><span class="filename">textsense · NLP service</span><span class="badge"><span class="av-ini p">TS</span></span></div>
-            <div class="code-block"><div class="lab">POST /analyze</div><span class="k">"text"</span>: "does this review feel positive?"<br><span class="k">"lang"</span>: auto-detected</div>
-            <div class="hbars">
-              <div class="hbar"><label>sentiment</label><div class="track"><i style="width:78%"></i></div><b>positive</b></div>
-              <div class="hbar tr"><label>intent</label><div class="track"><i style="width:64%"></i></div><b>feedback</b></div>
-            </div>
-            <div class="art-pill"><span class="dot"></span>deployed · ready behind an API key</div>
-          </div>
-        </div>
-      </div>
-      <div class="hc-row agents">
-        <div class="hc stack-left">
-          <div class="hc-art dark card-codex">
-            <div class="card-note"><span>twelve tasks, twelve workers</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
-            <div class="term-head"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="term-title">Codex — parallel sandboxes</span></div>
-            <div class="sandbox-grid">
-              <span class="sb done">t-01</span><span class="sb done">t-02</span><span class="sb done">t-03</span><span class="sb done">t-04</span>
-              <span class="sb done">t-05</span><span class="sb done">t-06</span><span class="sb done">t-07</span><span class="sb done">t-08</span>
-              <span class="sb done">t-09</span><span class="sb done">t-10</span><span class="sb run">t-11</span><span class="sb run">t-12</span>
-            </div>
-            <div class="term-line ok">all sandboxes merged in one review pass</div>
-          </div>
-        </div>
-        <div class="hc stack-center">
-          <div class="hc-art dark card-claude">
-            <div class="card-note"><span>architectural sweeps</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
-            <div class="term-head"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="term-title">Claude Code — ~/goftego</span></div>
-            <div class="term-body">
-              <div><span class="tp">$</span> claude "sweep the realtime layer"</div>
-              <div class="t-dim">· multi-step plan created</div>
-              <div class="t-dim">· codebase-wide edits applied</div>
-              <div class="t-ok">✓ surgical &amp; review-ready</div>
-            </div>
-            <div class="term-line ok">plan → edit → verify — end to end</div>
-          </div>
-        </div>
-        <div class="hc stack-right">
-          <div class="hc-art dark card-hermes">
-            <div class="card-note"><span>the control tower</span><svg class="note-arrow" viewBox="0 0 40 36" aria-hidden="true"><path d="M 14 4 C 16 14 22 22 20 30"/><path d="M 14 24 L 20 32 L 26 24"/></svg></div>
-            <div class="term-head"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="term-title">Hermes Agent — routing</span></div>
-            <div class="routes">
-              <div><b>chat</b><span class="arr">→</span><span class="mono">omnirouter → best model</span></div>
-              <div><b>code</b><span class="arr">→</span><span class="mono">OpenCode · terminal pair</span></div>
-              <div><b>fan-out</b><span class="arr">→</span><span class="mono">Codex · sandboxes</span></div>
-              <div><b>jobs</b><span class="arr">→</span><span class="mono">scheduled · automated</span></div>
-            </div>
-            <div class="art-pill inv"><span class="dot"></span>one stack orchestrating them all</div>
           </div>
         </div>
       </div>
@@ -194,16 +146,6 @@
       </div>
 
       <div class="laptop-wrapper">
-        <!-- handwritten-style annotations, Deepnote style -->
-        <div class="annotation annotation-left" aria-hidden="true">
-          <span>click through — 4 case studies</span>
-          <svg width="46" height="34" viewBox="0 0 46 34" fill="none"><path d="M44 2C30 8 16 16 6 30" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12.5 24.5L6 30l8 .5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        </div>
-        <div class="annotation annotation-right" aria-hidden="true">
-          <svg width="46" height="34" viewBox="0 0 46 34" fill="none"><path d="M2 2C16 8 30 16 40 30" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M33.5 24.5L40 30l-8 .5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          <span>every story links to the real repo</span>
-        </div>
-
         <div class="laptop-container">
           <!-- Navigation Controls — always visible -->
           <button class="nav-btn prev" type="button" aria-label="Previous story">
@@ -246,7 +188,7 @@
           />
         </div>
 
-        <!-- Indicators — right under the laptop, no text -->
+        <!-- Indicators — right under the laptop -->
         <div class="indicators">
           <button class="indicator-dot active" type="button" aria-label="Select story"></button>
           <button class="indicator-dot" type="button" aria-label="Select story"></button>
@@ -293,7 +235,7 @@
         </a>
         <a class="repo-tile reveal" href="https://github.com/Godde3s/habitgrid" target="_blank" rel="noopener">
           <span class="rt-row"><i class="rt-dot" style="background:#3178c6"></i><span class="rt-name">HabitGrid</span><svg class="rt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
-          <span class="rt-lang">TypeScript</span>
+          <span class="rt-lang">TypeScript · Expo</span>
         </a>
         <a class="repo-tile reveal" href="https://github.com/Godde3s/netpilot" target="_blank" rel="noopener">
           <span class="rt-row"><i class="rt-dot" style="background:#00ADD8"></i><span class="rt-name">NetPilot</span><svg class="rt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
@@ -313,7 +255,7 @@
         </a>
         <a class="repo-tile reveal" href="https://github.com/Godde3s/modbuslite" target="_blank" rel="noopener">
           <span class="rt-row"><i class="rt-dot" style="background:#178600"></i><span class="rt-name">ModbusLite</span><svg class="rt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
-          <span class="rt-lang">C#</span>
+          <span class="rt-lang">C# · Modbus TCP</span>
         </a>
       </div>
 
@@ -329,10 +271,10 @@
     <div class="marquee" data-marquee>
       <div class="marquee-track">
         <ul class="strip-pills">
-          <li>Python</li><li class="dot-sep"></li><li>JavaScript</li><li class="dot-sep"></li><li>TypeScript</li><li class="dot-sep"></li><li>Go</li><li class="dot-sep"></li><li>C#</li><li class="dot-sep"></li><li>C</li><li class="dot-sep"></li><li>PHP</li><li class="dot-sep"></li><li>Ruby</li><li class="dot-sep"></li><li>SQL</li><li class="dot-sep"></li><li>Node.js</li><li class="dot-sep"></li><li>Next.js</li><li class="dot-sep"></li><li>FastAPI</li><li class="dot-sep"></li><li>Docker</li><li class="dot-sep"></li><li>Linux</li><li class="dot-sep"></li><li>PostgreSQL</li><li class="dot-sep"></li><li>Redis</li><li class="dot-sep"></li><li>React Native</li><li class="dot-sep"></li>
+          <li>JavaScript</li><li class="dot-sep"></li><li>TypeScript</li><li class="dot-sep"></li><li>Python</li><li class="dot-sep"></li><li>Go</li><li class="dot-sep"></li><li>C#</li><li class="dot-sep"></li><li>C</li><li class="dot-sep"></li><li>PHP</li><li class="dot-sep"></li><li>SQL</li><li class="dot-sep"></li><li>PLC · LD / ST</li><li class="dot-sep"></li><li>Node.js</li><li class="dot-sep"></li><li>Next.js</li><li class="dot-sep"></li><li>FastAPI</li><li class="dot-sep"></li><li>React Native</li><li class="dot-sep"></li><li>Expo</li><li class="dot-sep"></li><li>Tauri</li><li class="dot-sep"></li><li>Electron</li><li class="dot-sep"></li><li>Docker</li><li class="dot-sep"></li><li>Linux</li><li class="dot-sep"></li><li>PostgreSQL</li><li class="dot-sep"></li><li>Redis</li><li class="dot-sep"></li><li>Modbus TCP</li><li class="dot-sep"></li>
         </ul>
         <ul class="strip-pills" aria-hidden="true">
-          <li>Python</li><li class="dot-sep"></li><li>JavaScript</li><li class="dot-sep"></li><li>TypeScript</li><li class="dot-sep"></li><li>Go</li><li class="dot-sep"></li><li>C#</li><li class="dot-sep"></li><li>C</li><li class="dot-sep"></li><li>PHP</li><li class="dot-sep"></li><li>Ruby</li><li class="dot-sep"></li><li>SQL</li><li class="dot-sep"></li><li>Node.js</li><li class="dot-sep"></li><li>Next.js</li><li class="dot-sep"></li><li>FastAPI</li><li class="dot-sep"></li><li>Docker</li><li class="dot-sep"></li><li>Linux</li><li class="dot-sep"></li><li>PostgreSQL</li><li class="dot-sep"></li><li>Redis</li><li class="dot-sep"></li><li>React Native</li><li class="dot-sep"></li>
+          <li>JavaScript</li><li class="dot-sep"></li><li>TypeScript</li><li class="dot-sep"></li><li>Python</li><li class="dot-sep"></li><li>Go</li><li class="dot-sep"></li><li>C#</li><li class="dot-sep"></li><li>C</li><li class="dot-sep"></li><li>PHP</li><li class="dot-sep"></li><li>SQL</li><li class="dot-sep"></li><li>PLC · LD / ST</li><li class="dot-sep"></li><li>Node.js</li><li class="dot-sep"></li><li>Next.js</li><li class="dot-sep"></li><li>FastAPI</li><li class="dot-sep"></li><li>React Native</li><li class="dot-sep"></li><li>Expo</li><li class="dot-sep"></li><li>Tauri</li><li class="dot-sep"></li><li>Electron</li><li class="dot-sep"></li><li>Docker</li><li class="dot-sep"></li><li>Linux</li><li class="dot-sep"></li><li>PostgreSQL</li><li class="dot-sep"></li><li>Redis</li><li class="dot-sep"></li><li>Modbus TCP</li><li class="dot-sep"></li>
         </ul>
       </div>
     </div>
@@ -343,20 +285,22 @@
     <div class="container">
       <header class="section-head reveal">
         <span class="eyebrow">The toolbox</span>
-        <h2 class="display-2">Deep in the core, wide at the edges.</h2>
-        <p class="lede">Production-tested skills — from SQL to SCADA, from the terminal to the edge.</p>
+        <h2 class="display-2">JS / Py / Go at the core, everywhere else at the edges.</h2>
+        <p class="lede">Production-tested skills — from the browser to the factory floor.</p>
       </header>
 
       <div class="skill-bento">
-        <a class="skill reveal" href="https://github.com/Godde3s?tab=repositories" target="_blank" rel="noopener"><span class="skill-icon ic-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><h3>Languages</h3><p>Python, JavaScript, TypeScript, Go, C#, C, PHP, Ruby, SQL</p></a>
+        <a class="skill reveal" href="https://github.com/Godde3s?tab=repositories" target="_blank" rel="noopener"><span class="skill-icon ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><h3>Languages</h3><p>JavaScript, TypeScript, Python, Go — my core; also C#, C, PHP, SQL</p></a>
         <a class="skill reveal" href="https://github.com/Godde3s/snaplink" target="_blank" rel="noopener"><span class="skill-icon ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><h3>Web frontend</h3><p>HTML/CSS, React, Next.js, Tailwind, VitePress, RTL-first design</p></a>
-        <a class="skill reveal" href="https://github.com/Godde3s/taskflow-api" target="_blank" rel="noopener"><span class="skill-icon ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="8" rx="1"/><rect x="3" y="14" width="18" height="8" rx="1"/><line x1="7" y1="8" x2="7" y2="8"/><line x1="7" y1="18" x2="7" y2="18"/></svg></span><h3>Backend &amp; APIs</h3><p>FastAPI, Node.js, REST, WebSockets, JWT auth, Prisma, OpenAI-compatible APIs</p></a>
+        <a class="skill reveal" href="https://github.com/Godde3s/taskflow-api" target="_blank" rel="noopener"><span class="skill-icon ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="8" rx="1"/><rect x="3" y="14" width="18" height="8" rx="1"/><line x1="7" y1="8" x2="7" y2="8"/><line x1="7" y1="18" x2="7" y2="18"/></svg></span><h3>Backend &amp; APIs</h3><p>FastAPI, Node.js, REST, WebSockets, JWT auth, Prisma, OpenAI-compatible APIs</p></a>
+        <a class="skill reveal" href="https://github.com/Godde3s/habitgrid" target="_blank" rel="noopener"><span class="skill-icon ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></span><h3>Mobile apps</h3><p>React Native &amp; Expo — one codebase shipping to Android, iOS and web</p></a>
+        <a class="skill reveal" href="https://github.com/Godde3s?tab=repositories" target="_blank" rel="noopener"><span class="skill-icon ic-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span><h3>Desktop apps</h3><p>Tauri &amp; Electron — lightweight, cross-platform desktop builds</p></a>
         <a class="skill reveal" href="https://github.com/Godde3s/postman-api-testing-toolkit" target="_blank" rel="noopener"><span class="skill-icon ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Testing &amp; tools</h3><p>Postman, Newman, pytest, layered contract testing, CI pipelines, gitleaks audits</p></a>
         <a class="skill reveal" href="https://github.com/Godde3s/netpilot" target="_blank" rel="noopener"><span class="skill-icon ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Networking</h3><p>TCP/IP, proxies &amp; tunnels, edge computing, Cloudflare Workers, VLESS infrastructure</p></a>
         <a class="skill reveal" href="https://github.com/Godde3s/veilchat" target="_blank" rel="noopener"><span class="skill-icon ic-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span><h3>Security</h3><p>End-to-end encryption, X25519, ChaCha20-Poly1305, secure session design</p></a>
         <a class="skill reveal" href="https://github.com/Godde3s/omnirouter" target="_blank" rel="noopener"><span class="skill-icon ic-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.9 2.9M16.9 16.9l2.9 2.9M1 12h4M19 12h4M4.2 19.8l2.9-2.9M16.9 7.1l2.9-2.9"/></svg></span><h3>AI &amp; LLM infra</h3><p>Model routing, agent orchestration, account pooling, SSE streaming, free-tier bridges</p></a>
         <a class="skill reveal" href="https://github.com/Godde3s/glm-free-api" target="_blank" rel="noopener"><span class="skill-icon ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span><h3>DevOps &amp; deploy</h3><p>Docker, CI/CD, Hugging Face Spaces, Railway, Render, Fly.io, Koyeb</p></a>
-        <a class="skill reveal" href="https://github.com/Godde3s/modbuslite" target="_blank" rel="noopener"><span class="skill-icon ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2.5 2.5"/></svg></span><h3>Industrial</h3><p>PLC &amp; SCADA concepts, Modbus TCP, industrial automation protocols</p></a>
+        <a class="skill reveal" href="https://github.com/Godde3s/modbuslite" target="_blank" rel="noopener"><span class="skill-icon ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4z"/><path d="M7 10v4M12 10v4M17 10v4"/><path d="M2 18h20"/><path d="M6 14v4M12 14v4M18 14v4"/></svg></span><h3>IoT &amp; Industrial</h3><p>PLC programming in LD &amp; ST (IEC 61131-3), SCADA concepts, Modbus TCP, IoT integration</p></a>
       </div>
     </div>
   </section>
@@ -415,7 +359,8 @@
         <h2 class="display-2">Creative by instinct, engineer by discipline.</h2>
         <p>
           I&rsquo;m Reza Bazdar, a full-stack software engineer from Iran who builds end-to-end:
-          web platforms, mobile apps, networks, industrial automation and AI infrastructure.
+          web platforms, mobile apps with Expo &amp; React Native, desktop apps with Tauri and
+          Electron, network tooling, IoT &amp; industrial automation and AI infrastructure.
           I write in whatever language the job demands — and I ship. Every repository linked
           from this page is a working, public build; documentation, tests and deployment
           scripts included.
@@ -424,8 +369,8 @@
           My work splits into four threads: <strong>collaboration software</strong> (chat platforms
           and encrypted messengers), <strong>developer infrastructure</strong> (API bridges and model
           routers), <strong>network tooling</strong> (edge panels and single-binary utilities) and
-          <strong>industrial automation</strong> (Modbus and .NET integration). I work in public —
-          browse the code, read the build notes and reuse anything under MIT.
+          <strong>IoT &amp; industrial automation</strong> (PLC programs in LD &amp; ST, Modbus TCP). I work
+          in public — browse the code, read the build notes and reuse anything under MIT.
         </p>
         <div class="about-links">
           <a class="btn btn-ghost btn-sm" href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub profile</a>
@@ -437,16 +382,13 @@
 
   <!-- ============ CONTACT ============ -->
   <section class="section" id="contact">
-    <div class="contact-bg" aria-hidden="true">
-      <div class="contact-glow"></div>
-    </div>
     <div class="container">
-      <div class="cta reveal">
+      <div class="cta-panel reveal">
         <h2 class="display-1">Your idea, live right now.</h2>
         <p>From spark to production — why not start today?</p>
         <div class="hero-cta center-cta">
           <a class="btn btn-primary btn-lg" href="https://github.com/Godde3s" target="_blank" rel="noopener">Hire me on GitHub</a>
-          <a class="btn btn-ghost btn-lg" href="https://godde3s.github.io/Usf/" target="_blank" rel="noopener">Read the full story</a>
+          <a class="btn btn-ghost-dark btn-lg" href="https://godde3s.github.io/Usf/" target="_blank" rel="noopener">Read the full story</a>
         </div>
       </div>
     </div>
@@ -456,7 +398,7 @@
 <footer class="footer">
   <div class="container footer-inner">
     <p>&copy; <span id="year">2026</span> Reza Bazdar (Godde3s). All rights reserved.</p>
-    <p class="footer-dim">Design inspired by <a href="https://deepnote.com" target="_blank" rel="noopener">deepnote.com</a> — rebuilt from scratch as <span class="mono">OR</span>.</p>
+    <p class="footer-dim">Designed &amp; built from scratch as <span class="mono">OR</span> — no templates, no page builders.</p>
     <div class="footer-links">
       <a href="https://github.com/Godde3s" target="_blank" rel="noopener">GitHub</a>
       <a href="https://godde3s.github.io/Usf/" target="_blank" rel="noopener">Usf</a>
