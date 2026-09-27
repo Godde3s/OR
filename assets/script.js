@@ -129,9 +129,9 @@
   var STORIES = [
     {
       id: 1,
-      title: 'A backend where every security claim has a test',
-      author: 'taskflow-api · Python',
-      avatar: 'shield',
+      title: 'One router for every model',
+      author: 'omnirouter · Go',
+      avatar: 'network',
       image: 'assets/stories/story-1.webp',
       srcset: 'assets/stories/story-1-640.webp 640w, assets/stories/story-1.webp 1280w',
       imageHeight: 959,
@@ -140,9 +140,9 @@
     },
     {
       id: 2,
-      title: 'A messenger with no server to breach',
-      author: 'veilchat · Python',
-      avatar: 'network',
+      title: 'A one-click AI server on a free Space',
+      author: 'hermes-stack · Python',
+      avatar: 'activity',
       image: 'assets/stories/story-2.webp',
       srcset: 'assets/stories/story-2-640.webp 640w, assets/stories/story-2.webp 1280w',
       imageHeight: 959,
@@ -151,14 +151,14 @@
     },
     {
       id: 3,
-      title: 'NLP that ships like a real service',
-      author: 'textsense · Python',
-      avatar: 'activity',
+      title: 'A backend where every security claim has a test',
+      author: 'taskflow-api · Python',
+      avatar: 'shield',
       image: 'assets/stories/story-3.webp',
       srcset: 'assets/stories/story-3-640.webp 640w, assets/stories/story-3.webp 1280w',
       imageHeight: 959,
       objectPosition: 'center center',
-      link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-3/'
+      link: 'https://godde3s.github.io/Usf/en/vibe-stories/story-4/'
     },
     {
       id: 4,
