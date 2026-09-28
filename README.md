@@ -2,7 +2,7 @@
 
 Personal portfolio of **Reza Bazdar** — Creative Software Engineer.
 
-Live: https://godde3s.github.io/OR/
+Live: https://godde3s.github.io/
 
 ## About
 
